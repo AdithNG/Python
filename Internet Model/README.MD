@@ -1,4 +1,4 @@
-# The Internet Mini Model
+# NetConnect: A Miniature Internet Model Simulation
 
 Author: Adith Nishanth Gunaseelan
 Date: 12/2/2021
