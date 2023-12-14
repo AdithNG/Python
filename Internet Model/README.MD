@@ -27,7 +27,7 @@ To execute the program:
 
 ## Notes
 
-This project contains commented-out code sections used for testing purposes, providing insights into the code's functionality for further exploration and development.
+The project directory contains text files that include sample inputs to test the functionality of the program. Utilize these text files to check the performance and accuracy of the implemented network functionalities.
 
 Feel free to modify and expand the codebase to explore additional network functionalities and enhance the simulation.
 
