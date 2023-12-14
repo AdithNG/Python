@@ -5,7 +5,8 @@ Date:    12/2/2021
 Description:
   Mini model of the internet
 """
-#Examples of certain important variables for clarity 
+
+# EXAMPLES OF OUTPUT OF IMPORTANT VARIABLES FOR CLARITY!!!
 
 #SERVERS = {'twitter.com': '104.244.42.193', 'facebook.com': '157.240.241.35', 'amazon.com': '172.5.12.128', 'netflix.com': '158.69.7.238', 'wikipedia.org': '208.80.154.244', 'umbc.edu': '143.204.151.121', 'twitch.tv': '151.101.210.167', 'discord.gg': '162.159.134.234'}
 #DICT = {'twitter.com': [['facebook.com', 34], ['netflix.com', 31], ['wikipedia.org', 12]], 'facebook.com': [['twitter.com', 34], ['amazon.com', 14]], 'amazon.com': [['netflix.com', 22], ['facebook.com', 14]], 'netflix.com': [['amazon.com', 22], ['twitter.com', 31]], 'umbc.edu': [['twitch.tv', 33], ['wikipedia.org', 5]], 'twitch.tv': [['umbc.edu', 33]], 'wikipedia.org': [['umbc.edu', 5], ['twitter.com', 12]]}
