@@ -5,31 +5,24 @@ Date:    12/2/2021
 Description:
   Mini model of the internet
 """
-
-# NOTE : SOME PARTS OF THE CODE USED FOR TESTING PURPOSES HAVE BEEN COMMENTED OUT !!!
+#Examples of certain important variables for clarity 
 
 #SERVERS = {'twitter.com': '104.244.42.193', 'facebook.com': '157.240.241.35', 'amazon.com': '172.5.12.128', 'netflix.com': '158.69.7.238', 'wikipedia.org': '208.80.154.244', 'umbc.edu': '143.204.151.121', 'twitch.tv': '151.101.210.167', 'discord.gg': '162.159.134.234'}
 #DICT = {'twitter.com': [['facebook.com', 34], ['netflix.com', 31], ['wikipedia.org', 12]], 'facebook.com': [['twitter.com', 34], ['amazon.com', 14]], 'amazon.com': [['netflix.com', 22], ['facebook.com', 14]], 'netflix.com': [['amazon.com', 22], ['twitter.com', 31]], 'umbc.edu': [['twitch.tv', 33], ['wikipedia.org', 5]], 'twitch.tv': [['umbc.edu', 33]], 'wikipedia.org': [['umbc.edu', 5], ['twitter.com', 12]]}
 #HOME = 'netflix.com'
 
 def run_the_internet():
-
-    
     servers = {}
     connections = {}
     home = ""
-    
+  
     user_input = input(">>> ")
     
     while user_input.lower() != 'quit':
         flag = 1
         input_split = user_input.split(" ")
-
-        
-
+      
         # Creating server
-        
-        
         if input_split[0] == "create-server":
 
             # Check for duplicates
@@ -42,11 +35,9 @@ def run_the_internet():
                 if flag:
                     servers[input_split[1]] = input_split[2]
                     print("Success: A server with name",input_split[1],"was created at ip",input_split[2])
-                    #print(servers)
-                    
+                    #print(servers)             
 
         # Creating connection
-        
         elif input_split[0] == "create-connection":
             
             if input_split[1] in servers and input_split[2] in servers:
@@ -64,14 +55,12 @@ def run_the_internet():
                     connections[input_split[2]] = [[input_split[1],int(input_split[3])]]
 
                 print("Success: A server with name",input_split[1],"is now connected to",input_split[2])
-                #print(connections)
 
             else:
                 print("One or more servers are not reachable")
 
 
         # Setting up home server
-
         elif input_split[0] == "set-server":
             
             home_flag = 0
@@ -94,15 +83,12 @@ def run_the_internet():
             else:
                 print("Unable to recognize server name or IP address")
 
-
-
+      
         # Calculating ping from destination
-
         elif input_split[0] == "ping":
             ping_flag = 0
             
             if home:
-    
                 if len(input_split[1].split(".")) == 4:
                     
                     for element in servers.keys():
@@ -132,8 +118,7 @@ def run_the_internet():
                 print("Please set home-server first")
 
 
-        # Show current server
-                
+        # Show current server           
         elif input_split[0] == 'ip-config':
             if home:
                 print(home,'  ',servers[home])
@@ -143,13 +128,10 @@ def run_the_internet():
 
 
         # Trace path to requested server
-
-        elif input_split[0] == 'traceroute' or input_split[0] == 'tracert' :
-            
+        elif input_split[0] == 'traceroute' or input_split[0] == 'tracert' :    
             trace_flag = 0
-            
-            if home:
-            
+          
+            if home: 
                 if len(input_split[1].split(".")) == 4:
                     
                     for element in servers.keys():
@@ -176,11 +158,8 @@ def run_the_internet():
             else:
                 print("Please set home-server first")
 
-                
-
 
         # Displaying all servers       
-
         elif  input_split[0] == 'display-servers':
             
             for server in servers:
@@ -193,9 +172,7 @@ def run_the_internet():
                         
         else:
             print("Command not recognized")
-
-            
-            
+     
         user_input = input(">>> ")
         
 
@@ -206,17 +183,13 @@ def tracert(web_map, starting_place, destination, servers, user_input):
     if starting_place in web_map:
         
         for node in web_map[starting_place]:
-            #print("Using node:",node)
-                
             visited = [starting_place]
                 
             if node[0] not in visited:
                 found = path_finder_rec(web_map, node[0], destination, visited)
-                #print("found:",found)
                     
                 if found == True:
                         visited.append(destination)
-                        #print(visited)
 
                         print("Tracing route to",destination,user_input)
 
@@ -243,10 +216,7 @@ def ping(web_map, starting_place, destination):
     ping = 0
     if starting_place in web_map:
         
-        for node in web_map[starting_place]:
-
-            #print("Using node:",node)
-                
+        for node in web_map[starting_place]:               
             visited = [starting_place]
                 
             if node[0] not in visited:
@@ -280,18 +250,16 @@ def path_finder_rec(web_map, starting_place, destination, visited):
         return False
     
     visited.append(starting_place)
-    #print("Visited:",visited)
     
     # recursive case
     result = False
-    for node in web_map[starting_place]:
-        #print("Node: ",node[0])
-        
+  
+    for node in web_map[starting_place]:   
         if node[0] not in visited:
             if path_finder_rec(web_map, node[0], destination, visited):
                 result = True
                 return True
-        #print("result:",result)
+
     return result
 
 
