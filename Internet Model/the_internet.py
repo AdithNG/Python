@@ -3,7 +3,7 @@ File:    the_internet.py
 Author:  Adith Nishanth Gunaseelan
 Date:    12/2/2021
 Description:
-  Mini model of the internet
+  A Miniature Internet Model Simulation
 """
 
 # EXAMPLES OF OUTPUT OF IMPORTANT VARIABLES FOR CLARITY!!!
